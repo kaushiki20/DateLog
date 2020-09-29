@@ -6,7 +6,9 @@ import Fade from "@material-ui/core/Fade";
 import TextField from "@material-ui/core/TextField";
 import moment from "moment";
 import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+
 const DataModal = ({ open, handleClose, data, name, active }) => {
   const classes = useStyles();
 
@@ -89,18 +91,34 @@ const DataModal = ({ open, handleClose, data, name, active }) => {
                   <Typography variant="body1" gutterBottom>
                     OOPS.... no work
                   </Typography>
-                  {active.map((a, i) => {
-                    return (
-                      <div key={i + "k1"}>
-                        <Typography variant="body1" gutterBottom>
-                          Active-Dates:{a.start_date}
-                        </Typography>
-                      </div>
-                    );
-                  })}
                 </div>
               )}
             </div>
+            <Divider />
+            <Typography variant="body2" gutterBottom>
+              {" "}
+              Active-Dates: /*testing purposes only
+            </Typography>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item xs={12}>
+                <Grid container justify="center" spacing={6}>
+                  {active.map((a, i) => {
+                    return (
+                      <Grid key={i + "k1"} item>
+                        <Typography variant="body1" gutterBottom>
+                          {a.start_date}
+                        </Typography>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </Grid>
+            </Grid>
           </div>
         </Fade>
       </Modal>
@@ -140,7 +158,7 @@ const useStyles = makeStyles(theme => ({
   },
   activity: {
     marginLeft: "35px",
-    width: 200,
+    minWidth: 200,
     margin: "5px",
   },
 }));
