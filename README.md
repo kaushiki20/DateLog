@@ -36,9 +36,13 @@ and structure of the object and sending back as response is :-
 
 You can start the project by using ### `npm start`
 Data flow:-
--Data is requested from the mock server and is saved in an array(data/setData).
--The data array is mapped into a table to show the user data in structured mannner.
--Onclick event on the row of the table opens a model which shows a calender
 
-- If there is activity data related to that particular date ,it will show the hours active of the user
+-Data is requested from the mock server and is saved in an array(data/setData).
+
+-The data array is mapped into a table to show the user data in structured mannner.
+
+-Onclick event on the row of the table opens a model which shows a calender.
+
+- If there is activity data related to that particular date ,it will show the hours active of the user.
+
   -Lastly on clicking oustide of the modal will trigger handleClose which is a function being used to close the modal .
