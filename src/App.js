@@ -14,8 +14,11 @@ function App() {
   const [data, setData] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [interval, setInterval] = useState([]);
+  const [activeDate, setActiveDate] = useState([]);
   const [name, setName] = useState("");
   const classes = useStyles();
+
+  //api call to a mock server to fetch data
   useEffect(() => {
     var config = {
       method: "get",
@@ -25,7 +28,6 @@ function App() {
     axios(config)
       .then(function (response) {
         const currentData = response.data;
-        console.log(currentData.members);
         setData(currentData.members);
       })
       .catch(function (error) {
@@ -33,11 +35,14 @@ function App() {
       });
   }, []);
 
+  // opens the modal and also converts date string into DD/MM/YYYY format
   const handleOpen = index => {
     setOpen(true);
-    console.log(index);
+
     const state = [];
+    const activedates = [];
     for (let i = 0; i < data[index].activity_periods.length; i++) {
+      //conversion
       const start_date = moment(
         data[index].activity_periods[i].start_time.slice(0, 11)
       ).format("YYYY-MM-DD");
@@ -45,7 +50,7 @@ function App() {
         11,
         data[index].activity_periods[i].start_time.length
       );
-
+      //conversion
       const end_date = moment(
         data[index].activity_periods[i].end_time.slice(0, 11)
       ).format("YYYY-MM-DD");
@@ -60,13 +65,17 @@ function App() {
         end_date: end_date,
         end_time: end_Time,
       };
+      const dateObj = {
+        start_date: start_date,
+      };
       state.push(obj);
+      activedates.push(dateObj);
     }
-    //console.log(state);
+    setActiveDate(activedates);
     setInterval(state);
     setName(data[index].real_name);
   };
-
+  //closes the modal
   const handleClose = () => {
     setOpen(false);
     setInterval([]);
@@ -106,6 +115,7 @@ function App() {
         handleClose={handleClose}
         data={interval}
         name={name}
+        active={activeDate}
       />
     </div>
   );
