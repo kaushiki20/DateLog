@@ -79,12 +79,13 @@ function App() {
   const handleClose = () => {
     setOpen(false);
     setInterval([]);
+    setActiveDate([]);
     setName();
   };
 
   return (
     <div className="App">
-      <TableContainer className={classes.TableContainer}>
+      <TableContainer className={classes.TableContainer} xs={12}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -124,7 +125,8 @@ function App() {
 export default App;
 const useStyles = makeStyles(theme => ({
   table: {
-    width: 800,
+    minWidth: 50,
+
     marginTop: "30vh",
   },
   tableContent: {
