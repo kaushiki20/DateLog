@@ -17,10 +17,11 @@ You will also see any lint errors in the console.
 I have used Postman's mock server to create the api request
 (https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/)
 the api url is-(https://20fbaad1-1df2-4700-9c31-17213065cea7.mock.pstmn.io/api)
+please refer to Public\Desktop\fullthrottle\public\Screenshot11.png file for api url
+url-{initialvalue:(https://20fbaad1-1df2-4700-9c31-17213065cea7.mock.pstmn.io)
+currentValue:(https://20fbaad1-1df2-4700-9c31-17213065cea7.mock.pstmn.io)}
 and structure of the object and sending back as response is :-
-
-{
-"ok": true,
+{"ok": true,
 "members": [{
 "id": "W012A3CDE",
 "real_name": "Egon Spengler",
@@ -29,13 +30,11 @@ and structure of the object and sending back as response is :-
 "start_time": "Feb 1 2020 1:33PM",
 "end_time": "Feb 1 2020 1:54PM"
 },]
-},}
-
-![Screenshot](Screenshot.png)
+}}
 
 ### `Project`
 
-You can start the project by using npm start
+You can start the project by using ### `npm start`
 Data flow:-
 -Data is requested from the mock server and is saved in an array(data/setData).
 -The data array is mapped into a table to show the user data in structured mannner.
